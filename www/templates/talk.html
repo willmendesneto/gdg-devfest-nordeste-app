@@ -1,0 +1,29 @@
+<ion-view title="Trilha {{TrackChoiced.track}}">
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item>
+        <h2>{{ TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ TalkChoiced.speaker }}</span></h2>
+        <div ng-if="isList">
+            <img ng-repeat="(key, item) in TalkChoiced.image track by key" ng-src="{{ item }}" alt="{{ TalkChoiced.speaker[key] }}" title="{{ TalkChoiced.speaker[key] }}" />
+        </div>
+        <div ng-if="!isList">
+            <img ng-src="{{TalkChoiced.image}}" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
+        </div>
+        <p>{{ TalkChoiced.begin + ' / ' + TalkChoiced.end }}</p>
+        <p>Complexidade: <em>{{ TalkChoiced.complexity }}</em></p>
+        <p>Descrição:</p>
+        <p>{{ TalkChoiced.description }}</p>
+        <div ng-if="isList">
+            <div ng-repeat="(i, speaker) in TalkChoiced.speaker">
+                <p>Sobre {{speaker}}:</p>
+                <p>{{ TalkChoiced.resume[i] }}</p>
+            </div>
+        </div>
+        <div ng-if="!isList">
+            <p>Sobre {{TalkChoiced.speaker}}:</p>
+            <p>{{ TalkChoiced.resume }}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

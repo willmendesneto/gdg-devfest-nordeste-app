@@ -1,0 +1,21 @@
+<ion-view title="Sobre o GDG DevFest Nordeste">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left"class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header main-content">
+    <h1>Sobre o GDG DevFest Nordeste</h1>
+    <p>DevFest é um evento organizado pela comunidade de desenvolvedores Google no mundo todo. Atualmente conta com eventos espalhados pelos 5 continentes e abrange todos os produtos e plataformas da empresa.</p>
+
+    <p>O DevFest é um evento colaborativo focado na comunidade de desenvolvedores Google, permitindo o aprendizado técnico qualificado e um ambiente de networking, com o conteúdo distribuído em 16 sessões técnicas, que abordarão os temas Android, Cloud Computing, HTML5/Chrome, Google APIs, além de atividades extras.</p>
+
+    <p>Conheça os GDGs (Grupo de Desenvolvedores Google) que participam da organização do evento:</p>
+
+    <ul class="">
+        <li ng-repeat="gdg in GDGGroupsList" class="col list-gdg-groups">
+            <a ng-href="{{gdg.url}}" target="_blank">
+                <img ng-src="{{gdg.image}}" title="{{gdg.title}}" alt="{{gdg.title}}" />
+            </a>
+        </li>
+    </ul>
+  </ion-content>
+</ion-view>
