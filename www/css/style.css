@@ -6,3 +6,19 @@
     margin-top: 1em;
     margin-bottom: 1em;
 }
+.img-responsive {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.img-circle {
+    border-radius: 50%;
+    border: 2px solid #F8F8F8;
+}
+img {
+    vertical-align: middle;
+}
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}

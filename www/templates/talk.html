@@ -7,7 +7,7 @@
             <img ng-repeat="(key, item) in TalkChoiced.image track by key" ng-src="{{ item }}" alt="{{ TalkChoiced.speaker[key] }}" title="{{ TalkChoiced.speaker[key] }}" />
         </div>
         <div ng-if="!isList">
-            <img ng-src="{{TalkChoiced.image}}" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
+            <img ng-src="{{TalkChoiced.image}}" class="centered img-circle img-responsive" width="250" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
         </div>
         <p>{{ TalkChoiced.begin + ' / ' + TalkChoiced.end }}</p>
         <p>Complexidade: <em>{{ TalkChoiced.complexity }}</em></p>
