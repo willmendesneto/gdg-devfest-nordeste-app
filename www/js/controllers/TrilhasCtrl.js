@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('gdgApp')
-  .controller('TracksCtrl', function($scope, $filter, $stateParams, Tracks, GDGGroups) {
+  .controller('TracksCtrl', function($scope, $filter, $stateParams, Tracks, GDGGroups, Schedule) {
     $scope.TrackList = Tracks;
     $scope.GDGGroupsList = GDGGroups;
     $scope.isList = false;
     $scope.TrackChoiced = $scope.TalkChoiced = {};
+    $scope.Schedule = Schedule.getSchedule();
 
     $scope.init = function() {
       if (!angular.isUndefined($stateParams.trilhaId)) {
@@ -15,6 +16,11 @@ angular.module('gdgApp')
           $scope.isList = angular.isArray($scope.TalkChoiced.image);
         }
       }
+    };
+
+    $scope.addTalkInSchedule = function(talk, track) {
+      Schedule.updateTalkInSchedule(talk, track);
+      alert('Agendamente feito!');
     };
 
     $scope.init();

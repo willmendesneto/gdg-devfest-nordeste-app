@@ -23,7 +23,8 @@
             <p>Sobre {{TalkChoiced.speaker}}:</p>
             <p>{{ TalkChoiced.resume }}</p>
         </div>
-      </ion-item>
+        <button ng-click="addTalkInSchedule(TalkChoiced, TrackChoiced.track);">Adicione esta apresentação em sua agenda</button>
+        </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>

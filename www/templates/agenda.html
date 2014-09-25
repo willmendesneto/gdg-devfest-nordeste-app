@@ -1,0 +1,9 @@
+<ion-view title="Agenda">
+  <ion-content class="has-header">
+    <ion-list>
+      <ion-item ng-repeat="(key, track) in Schedule.talks track by $index" one-way href="#/app/trilhas/{{track.track}}/{{key}}">
+        {{track.talk}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

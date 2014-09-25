@@ -47,6 +47,16 @@ angular.module('gdgApp', ['ionic'])
         }
       }
     })
+
+    .state('app.agenda', {
+      url: '/agenda',
+      views: {
+        'menuContent' :{
+          templateUrl: 'templates/agenda.html',
+          controller: 'TracksCtrl'
+        }
+      }
+    })
     .state('app.trilhas', {
       url: '/trilhas',
       views: {
