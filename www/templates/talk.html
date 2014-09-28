@@ -21,7 +21,7 @@
           <a class="item" href="#">Complexidade: <em>{{ TalkChoiced.complexity }}</em></a>
           <a class="item" href="#">Descrição:</a>
           <a class="item" href="#">{{ TalkChoiced.description || 'Não informado' }}</a>
-          <div ng-if="isList" ng-repeat="(i, speaker) in TalkChoiced.speaker">
+          <div ng-if="isList" ng-repeat="(i, speaker) in TalkChoiced.speaker track by $index">
             <a class="item item-divider">
               <p>Sobre {{speaker}}:</p>
             </a>

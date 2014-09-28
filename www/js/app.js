@@ -18,6 +18,7 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
   });
 })
 

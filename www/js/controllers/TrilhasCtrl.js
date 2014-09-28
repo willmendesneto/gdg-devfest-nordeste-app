@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('gdgApp')
-  .controller('TracksCtrl', function($scope, $filter, $window, $stateParams, Tracks, GDGGroups, Schedule) {
+  .controller('TracksCtrl', function($scope, $filter, $window, $stateParams, Tracks, GDGGroups, Schedule, Utils) {
     $scope.TrackList = Tracks;
     $scope.GDGGroupsList = GDGGroups;
     $scope.isList = false;
@@ -30,10 +30,12 @@ angular.module('gdgApp')
     };
 
     $scope.addTalkInSchedule = function(talk, track) {
-      if (confirm('Quer realmente agendar esta apresentação? Qualquer outra apresentação para este horário será removida.')) {
-        Schedule.updateTalkInSchedule(talk, track);
-        alert('Agendamente feito!');
-      }
+      Utils.showConfirm().then(function(res) {
+        if(res) {
+          Schedule.updateTalkInSchedule(talk, track);
+          Utils.showAlert();
+        }
+      });
     };
 
     $scope.init();
