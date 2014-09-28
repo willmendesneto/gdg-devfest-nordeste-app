@@ -5,7 +5,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('gdgApp', ['ionic'])
+angular.module('gdgApp', ['ionic', 'ngSanitize'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -57,28 +57,28 @@ angular.module('gdgApp', ['ionic'])
         }
       }
     })
-    .state('app.trilhas', {
-      url: '/trilhas',
+    .state('app.tracks', {
+      url: '/tracks',
       views: {
         'menuContent' :{
-          templateUrl: 'templates/trilhas.html',
+          templateUrl: 'templates/track-list.html',
           controller: 'TracksCtrl'
         }
       }
     })
 
-    .state('app.single', {
-      url: '/trilhas/:trilhaId',
+    .state('app.single-track', {
+      url: '/tracks/single/:trackId',
       views: {
         'menuContent' :{
-          templateUrl: 'templates/trilha.html',
+          templateUrl: 'templates/single-track.html',
           controller: 'TracksCtrl'
         }
       }
     })
 
     .state('app.talk', {
-      url: '/trilhas/:trilhaId/:Id',
+      url: '/tracks/single/:trackId/:talkId',
       views: {
         'menuContent' :{
           templateUrl: 'templates/talk.html',
@@ -87,5 +87,5 @@ angular.module('gdgApp', ['ionic'])
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/trilhas');
+  $urlRouterProvider.otherwise('/app/tracks');
 });

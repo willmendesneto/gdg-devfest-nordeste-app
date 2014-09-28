@@ -1,9 +1,16 @@
 <ion-view title="Agenda">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="(key, track) in Schedule.talks track by $index" one-way href="#/app/trilhas/{{track.track}}/{{key}}">
-        {{track.talk}}
-      </ion-item>
+      <div ng-repeat="(key, track) in Schedule.talks track by $index" >
+          <ion-item ng-if="track.talk !== undefined" one-way href="#/app/tracks/single/{{track.track}}/{{key}}">
+            <p>{{track.begin}} / {{track.end}}</p>
+            <p>{{track.talk || 'Sem agendamento'}}</p>
+          </ion-item>
+          <ion-item ng-if="track.talk === undefined" one-way>
+            <p>{{track.begin}} / {{track.end}}</p>
+            <p>{{track.talk || 'Sem agendamento'}}</p>
+          </ion-item>
+      </div>
     </ion-list>
   </ion-content>
 </ion-view>

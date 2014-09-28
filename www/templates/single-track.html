@@ -1,7 +1,7 @@
 <ion-view title="Trilha {{TrackChoiced.track}}">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="(key, track) in TrackChoiced.talks track by $index" one-way href="#/app/trilhas/{{TrackChoiced.track}}/{{key}}">
+      <ion-item ng-repeat="(key, track) in TrackChoiced.talks track by $index" one-way href="#/app/tracks/single/{{TrackChoiced.track}}/{{key}}">
         {{track.talk}}
       </ion-item>
     </ion-list>

@@ -22,3 +22,15 @@ img {
     margin-left: auto;
     margin-right: auto;
 }
+.clearfix {
+    clear: both;
+}
+.pull-left {
+    float: left;
+}
+.text-centered {
+    text-align: center;
+}
+.schedule-button {
+    width: 100%;
+}

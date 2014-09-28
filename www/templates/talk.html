@@ -2,13 +2,14 @@
   <ion-content class="has-header">
     <ion-list>
       <ion-item>
-        <h2>{{ TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ TalkChoiced.speaker }}</span></h2>
-        <div ng-if="isList">
-            <img ng-repeat="(key, item) in TalkChoiced.image track by key" ng-src="{{ item }}" alt="{{ TalkChoiced.speaker[key] }}" title="{{ TalkChoiced.speaker[key] }}" />
+        <h2 class="text-centered">{{ TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ TalkChoiced.speaker }}</span></h2>
+        <div ng-if="isList" class="clearfix centered">
+            <img ng-repeat="(key, item) in TalkChoiced.image track by key" ng-src="{{ item }}" class="img-circle img-responsive pull-left" width="40%" alt="{{ TalkChoiced.speaker[key] }}" title="{{ TalkChoiced.speaker[key] }}" />
         </div>
         <div ng-if="!isList">
-            <img ng-src="{{TalkChoiced.image}}" class="centered img-circle img-responsive" width="250" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
+            <img ng-src="{{TalkChoiced.image}}" class="centered img-circle img-responsive" width="40%" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
         </div>
+        <br/>
         <p>{{ TalkChoiced.begin + ' / ' + TalkChoiced.end }}</p>
         <p>Complexidade: <em>{{ TalkChoiced.complexity }}</em></p>
         <p>Descrição:</p>
@@ -16,14 +17,15 @@
         <div ng-if="isList">
             <div ng-repeat="(i, speaker) in TalkChoiced.speaker">
                 <p>Sobre {{speaker}}:</p>
-                <p>{{ TalkChoiced.resume[i] }}</p>
+                <p ng-bind-html="TalkChoiced.resume[i]"></p>
             </div>
         </div>
         <div ng-if="!isList">
             <p>Sobre {{TalkChoiced.speaker}}:</p>
-            <p>{{ TalkChoiced.resume }}</p>
+            <p ng-bind-html="TalkChoiced.resume"></p>
         </div>
-        <button class="button button-positive"  ng-click="addTalkInSchedule(TalkChoiced, TrackChoiced.track);">Adicione esta apresentação em sua agenda</button>
+        <br/><br/>
+        <button class="button button-positive schedule-button"  ng-click="addTalkInSchedule(TalkChoiced, TrackChoiced.track);">Adicione esta apresentação em sua agenda</button>
         </ion-item>
     </ion-list>
   </ion-content>
