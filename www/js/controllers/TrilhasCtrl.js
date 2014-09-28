@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('gdgApp')
-  .controller('TracksCtrl', function($scope, $filter, $window, $stateParams, Tracks, GDGGroups, Schedule, Utils) {
+  .controller('TracksCtrl', function($scope, $filter, $window, $stateParams, Tracks, GDGGroups, Schedule, Utils, Config) {
     $scope.TrackList = Tracks;
     $scope.GDGGroupsList = GDGGroups;
     $scope.isList = false;
+    $scope.Config = Config;
     $scope.TrackChoiced = $scope.TalkChoiced = {};
     $scope.Schedule = Schedule.getSchedule();
 

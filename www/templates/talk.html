@@ -20,13 +20,13 @@
           </a>
           <a class="item" href="#">Complexidade: <em>{{ TalkChoiced.complexity }}</em></a>
           <a class="item" href="#">Descrição:</a>
-          <a class="item" href="#">{{ TalkChoiced.description || 'Não informado' }}</a>
+          <a class="item" href="#">{{ TalkChoiced.description || Config.NotInformedMessage }}</a>
           <div ng-if="isList" ng-repeat="(i, speaker) in TalkChoiced.speaker track by $index">
             <a class="item item-divider">
               <p>Sobre {{speaker}}:</p>
             </a>
             <a class="item">
-              <p ng-bind-html="TalkChoiced.resume[i] || 'Não informado'"></p>
+              <p ng-bind-html="TalkChoiced.resume[i] || Config.NotInformedMessage"></p>
             </a>
           </div>
           <div ng-if="!isList">
@@ -34,12 +34,12 @@
               <p>Sobre {{TalkChoiced.speaker}}:</p>
             </a>
             <a class="item" href="#">
-              <p ng-bind-html="TalkChoiced.resume || 'Não informado'"></p>
+              <p ng-bind-html="TalkChoiced.resume || Config.NotInformedMessage"></p>
             </a>
           </div>
         </div>
         <br/><br/>
-        <button class="button button-positive schedule-button"  ng-click="addTalkInSchedule(TalkChoiced, TrackChoiced.track);">Adicione esta apresentação em sua agenda</button>
+        <button class="button button-positive schedule-button"  ng-click="addTalkInSchedule(TalkChoiced, TrackChoiced.track);">{{ Config.ScheduleButtomMessage }}</button>
         </ion-item>
     </ion-list>
   </ion-content>
