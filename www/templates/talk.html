@@ -2,27 +2,41 @@
   <ion-content class="has-header">
     <ion-list>
       <ion-item>
-        <h2 class="text-centered">{{ TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ TalkChoiced.speaker }}</span></h2>
-        <div ng-if="isList" class="clearfix centered">
-            <img ng-repeat="(key, item) in TalkChoiced.image track by key" ng-src="{{ item }}" class="img-circle img-responsive pull-left" width="40%" alt="{{ TalkChoiced.speaker[key] }}" title="{{ TalkChoiced.speaker[key] }}" />
+        <div ng-if="isList" class="clearfix centered" style="width: {{TalkChoiced.speaker.length * 30 < 100 ? TalkChoiced.speaker.length * 30 : 100 }}%">
+          <img ng-repeat="(key, item) in TalkChoiced.image track by key" ng-src="{{ item }}" class="img-circle img-responsive pull-left" width="30%" alt="{{ TalkChoiced.speaker[key] }}" title="{{ TalkChoiced.speaker[key] }}" />
         </div>
         <div ng-if="!isList">
-            <img ng-src="{{TalkChoiced.image}}" class="centered img-circle img-responsive" width="40%" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
+          <img ng-src="{{TalkChoiced.image}}" class="centered img-circle img-responsive" width="30%" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
         </div>
         <br/>
-        <p>{{ TalkChoiced.begin + ' / ' + TalkChoiced.end }}</p>
-        <p>Complexidade: <em>{{ TalkChoiced.complexity }}</em></p>
-        <p>Descrição:</p>
-        <p>{{ TalkChoiced.description }}</p>
-        <div ng-if="isList">
-            <div ng-repeat="(i, speaker) in TalkChoiced.speaker">
-                <p>Sobre {{speaker}}:</p>
-                <p ng-bind-html="TalkChoiced.resume[i]"></p>
-            </div>
-        </div>
-        <div ng-if="!isList">
-            <p>Sobre {{TalkChoiced.speaker}}:</p>
-            <p ng-bind-html="TalkChoiced.resume"></p>
+        <div class="list">
+
+          <div class="item item-divider">
+            {{ TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ TalkChoiced.speaker }}</span>
+          </div>
+
+          <a class="item" href="#">
+            {{ TalkChoiced.begin + ' / ' + TalkChoiced.end }}
+          </a>
+          <a class="item" href="#">Complexidade: <em>{{ TalkChoiced.complexity }}</em></a>
+          <a class="item" href="#">Descrição:</a>
+          <a class="item" href="#">{{ TalkChoiced.description || 'Não informado' }}</a>
+          <div ng-if="isList" ng-repeat="(i, speaker) in TalkChoiced.speaker">
+            <a class="item item-divider">
+              <p>Sobre {{speaker}}:</p>
+            </a>
+            <a class="item">
+              <p ng-bind-html="TalkChoiced.resume[i] || 'Não informado'"></p>
+            </a>
+          </div>
+          <div ng-if="!isList">
+            <a class="item item-divider" href="#">
+              <p>Sobre {{TalkChoiced.speaker}}:</p>
+            </a>
+            <a class="item" href="#">
+              <p ng-bind-html="TalkChoiced.resume || 'Não informado'"></p>
+            </a>
+          </div>
         </div>
         <br/><br/>
         <button class="button button-positive schedule-button"  ng-click="addTalkInSchedule(TalkChoiced, TrackChoiced.track);">Adicione esta apresentação em sua agenda</button>

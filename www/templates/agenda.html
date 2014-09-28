@@ -3,7 +3,7 @@
     <ion-list>
       <div ng-repeat="(key, track) in Schedule.talks track by $index" >
           <ion-item ng-if="track.talk !== undefined" one-way href="#/app/tracks/single/{{track.track}}/{{key}}">
-            <p>{{track.begin}} / {{track.end}}</p>
+            <p>{{track.begin}} / {{track.end}} <span class="badge badge-assertive">{{track.track}}</span></p>
             <p>{{track.talk || 'Sem agendamento'}}</p>
           </ion-item>
           <ion-item ng-if="track.talk === undefined" one-way>
