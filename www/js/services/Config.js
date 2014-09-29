@@ -1,5 +1,5 @@
 angular.module('gdgApp')
-  .value('Config', {
+  .constant('Config', {
     NotInformedMessage: 'Não informado',
     ScheduleButtomMessage: 'Adicione esta apresentação em sua agenda',
     ScheduleNotInformedMessage: 'Sem agendamento'
