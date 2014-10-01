@@ -11,10 +11,8 @@
     <p>Conheça os GDGs (Grupo de Desenvolvedores Google) que participam da organização do evento:</p>
 
     <ul class="">
-        <li ng-repeat="gdg in GDGGroupsList" class="col list-gdg-groups">
-            <a ng-href="{{gdg.url}}" target="_blank">
-                <img ng-src="{{gdg.image}}" title="{{gdg.title}}" alt="{{gdg.title}}" />
-            </a>
+        <li ng-repeat="gdg in GDGGroupsList" class="col list-gdg-groups" ng-click="openInBrowser(gdg.url);">
+          <img ng-src="{{gdg.image}}" title="{{gdg.title}}" alt="{{gdg.title}}" />
         </li>
     </ul>
   </ion-content>

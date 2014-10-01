@@ -9,6 +9,11 @@ angular.module('gdgApp')
     $scope.TrackChoiced = $scope.TalkChoiced = {};
     $scope.Schedule = Schedule.getSchedule();
 
+    $scope.openInBrowser = function(link) {
+      window.open(link, '_blank', 'location=yes');
+      return false;
+    }
+
     $scope.init = function() {
       if (!angular.isUndefined($stateParams.trackId)) {
         $scope.TrackChoiced = $filter('filter')(Tracks, {track: $stateParams.trackId}, true)[0];
