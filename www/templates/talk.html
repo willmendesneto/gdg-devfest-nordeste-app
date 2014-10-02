@@ -1,45 +1,45 @@
-<ion-view title="Trilha {{TrackChoiced.track}}">
+<ion-view title="{{App.Config.TrackPagesTitle + ' ' + App.TrackChoiced.track}}">
   <ion-content class="has-header">
     <ion-list>
       <ion-item>
-        <div ng-if="isList" class="clearfix centered" style="width: {{TalkChoiced.speaker.length * 30 < 100 ? TalkChoiced.speaker.length * 30 : 100 }}%">
-          <img ng-repeat="(key, item) in TalkChoiced.image track by key" ng-src="{{ item }}" class="img-circle img-responsive pull-left" width="30%" alt="{{ TalkChoiced.speaker[key] }}" title="{{ TalkChoiced.speaker[key] }}" />
+        <div ng-if="isList" class="clearfix centered" style="width: {{App.TalkChoiced.speaker.length * 30 < 100 ? App.TalkChoiced.speaker.length * 30 : 100 }}%">
+          <img ng-repeat="(key, item) in App.TalkChoiced.image track by key" ng-src="{{ item }}" class="img-circle img-responsive pull-left" width="30%" alt="{{ App.TalkChoiced.speaker[key] }}" title="{{ App.TalkChoiced.speaker[key] }}" />
         </div>
         <div ng-if="!isList">
-          <img ng-src="{{TalkChoiced.image}}" class="centered img-circle img-responsive" width="30%" alt="{{ TalkChoiced.speaker }}" title="{{ TalkChoiced.speaker }}" />
+          <img ng-src="{{App.TalkChoiced.image}}" class="centered img-circle img-responsive" width="30%" alt="{{ App.TalkChoiced.speaker }}" title="{{ App.TalkChoiced.speaker }}" />
         </div>
         <br/>
         <div class="list">
 
           <div class="item item-divider">
-            {{ TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ TalkChoiced.speaker }}</span>
+            {{ App.TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in App.TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ App.TalkChoiced.speaker }}</span>
           </div>
 
           <a class="item">
-            {{ TalkChoiced.begin + ' / ' + TalkChoiced.end }}
+            {{ App.TalkChoiced.begin + ' / ' + App.TalkChoiced.end }}
           </a>
-          <a class="item">Complexidade: <em>{{ TalkChoiced.complexity }}</em></a>
+          <a class="item">Complexidade: <em>{{ App.TalkChoiced.complexity }}</em></a>
           <a class="item">Descrição:</a>
-          <a class="item">{{ TalkChoiced.description || Config.NotInformedMessage }}</a>
-          <div ng-if="isList" ng-repeat="(i, speaker) in TalkChoiced.speaker track by $index">
+          <a class="item">{{ App.TalkChoiced.description || App.Config.NotInformedMessage }}</a>
+          <div ng-if="isList" ng-repeat="(i, speaker) in App.TalkChoiced.speaker track by $index">
             <a class="item item-divider">
               <p>Sobre {{speaker}}:</p>
             </a>
             <a class="item">
-              <p ng-bind-html="TalkChoiced.resume[i] || Config.NotInformedMessage"></p>
+              <p ng-bind-html="App.TalkChoiced.resume[i] || App.Config.NotInformedMessage"></p>
             </a>
           </div>
           <div ng-if="!isList">
             <a class="item item-divider">
-              <p>Sobre {{TalkChoiced.speaker}}:</p>
+              <p>Sobre {{App.TalkChoiced.speaker}}:</p>
             </a>
             <a class="item">
-              <p ng-bind-html="TalkChoiced.resume || Config.NotInformedMessage"></p>
+              <p ng-bind-html="App.TalkChoiced.resume || App.Config.NotInformedMessage"></p>
             </a>
           </div>
         </div>
         <br/><br/>
-        <button class="button button-positive schedule-button"  ng-click="addTalkInSchedule(TalkChoiced, TrackChoiced.track);">{{ Config.ScheduleButtomMessage }}</button>
+        <button class="button button-positive schedule-button"  ng-click="addTalkInSchedule(TalkChoiced, App.TrackChoiced.track);">{{ App.Config.ScheduleButtomMessage }}</button>
         </ion-item>
     </ion-list>
   </ion-content>

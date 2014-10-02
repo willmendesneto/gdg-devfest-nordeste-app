@@ -36,7 +36,7 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       views: {
         'menuContent' :{
           templateUrl: 'templates/about.html',
-          controller: 'TracksCtrl'
+          controller: 'AppCtrl'
         }
       }
     })
@@ -54,7 +54,7 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       views: {
         'menuContent' :{
           templateUrl: 'templates/agenda.html',
-          controller: 'TracksCtrl'
+          controller: 'AppCtrl'
         }
       }
     })
@@ -63,7 +63,7 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       views: {
         'menuContent' :{
           templateUrl: 'templates/track-list.html',
-          controller: 'TracksCtrl'
+          controller: 'AppCtrl'
         }
       }
     })
@@ -73,7 +73,7 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       views: {
         'menuContent' :{
           templateUrl: 'templates/single-track.html',
-          controller: 'TracksCtrl'
+          controller: 'AppCtrl'
         }
       }
     })
@@ -83,7 +83,7 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       views: {
         'menuContent' :{
           templateUrl: 'templates/talk.html',
-          controller: 'TracksCtrl'
+          controller: 'AppCtrl'
         }
       }
     });

@@ -1,10 +1,10 @@
-<ion-view title="Trilhas">
+<ion-view title="{{App.Config.TrackPagesTitle}}">
   <ion-nav-buttons side="left">
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="track in TrackList" one-way href="#/app/tracks/single/{{track.track}}">
+      <ion-item ng-repeat="track in App.TrackList" one-way href="#/app/tracks/single/{{track.track}}">
         {{track.track}}
       </ion-item>
     </ion-list>
