@@ -44,7 +44,8 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       url: '/location',
       views: {
         'menuContent' :{
-          templateUrl: 'templates/location.html'
+          templateUrl: 'templates/location.html',
+          controller: 'AppCtrl'
         }
       }
     })

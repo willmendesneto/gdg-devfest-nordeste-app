@@ -34,3 +34,27 @@ img {
 .schedule-button {
     width: 100%;
 }
+
+/* Empty. Add your own CSS if you like */
+
+#map {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.scroll {
+  height: 100%;
+}
+.map-info-content {
+    background: #5DC7FF;
+    color: #FFF;
+    position: absolute;
+    top: .6em;
+    right: 9em;
+    z-index: 99999;
+    padding: 2em;
+    border: 2px solid #EDEDED;
+}
+.map-info-content h1 {
+    color: #FFF;
+}

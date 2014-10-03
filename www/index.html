@@ -15,13 +15,17 @@
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB16sGmIekuGIvYOfNoW9T44377IU2d2Es&sensor=true"></script>
+
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    <script src="js/controllers/AppCtrl.js"></script>
+    <script src="js/controllers/MapCtrl.js"></script>
     <script src="js/directives/OneBind.js"></script>
-    <script src="js/directives/OpenInBrowser.js"></script>
     <script src="js/services/Tracks.js"></script>
     <script src="js/services/GDGGroups.js"></script>
     <script src="js/services/CryptoOfflineStorageService.js"></script>
@@ -30,7 +34,8 @@
     <script src="js/services/Utils.js"></script>
     <script src="js/services/Config.js"></script>
     <script src="js/filters/filters.js"></script>
-    <script src="js/controllers/AppCtrl.js"></script>
+    <script src="js/directives/OpenInBrowser.js"></script>
+    <script src="js/directives/Map.js"></script>
   </head>
 
   <body ng-app="gdgApp">
