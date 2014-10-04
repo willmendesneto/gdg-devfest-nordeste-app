@@ -1,11 +1,19 @@
 'use strict';
 
 angular.module('gdgApp')
-  .directive('map', function(Config) {
+  .directive('map', function(Config, Utils) {
     return {
       restrict: 'E',
       controller: 'MapCtrl',
       link: function ($scope, $element, $attr) {
+
+        function gmapsIsLoaded() {
+          if (angular.isUndefined(window.google) || angular.isUndefined(window. google.maps) ) {
+            Utils.showAlert({ template: Config.GoogleMapsNotLoaded });
+            return false;
+          }
+          return true;
+        }
 
         function initialize() {
           var conferenceLatLng = new google.maps.LatLng($attr.lat, $attr.lng),
@@ -39,10 +47,12 @@ angular.module('gdgApp')
 
         }
 
-        if (document.readyState === 'complete') {
-          initialize();
-        } else {
-          google.maps.event.addDomListener(window, 'load', initialize);
+        if (gmapsIsLoaded()) {
+          if (document.readyState === 'complete') {
+            initialize();
+          } else {
+              google.maps.event.addDomListener(window, 'load', initialize);
+          }
         }
       }
     }
