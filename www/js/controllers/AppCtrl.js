@@ -24,6 +24,8 @@ angular.module('gdgApp')
           } else {
             $scope.App.TalkChoiced.resume = $filter('breakword')($scope.App.TalkChoiced.resume, $scope.App.getQuantityByWindowWidth(), '<br>');
           }
+
+          $scope.App.TalkChoiced.description = $filter('breakword')($scope.App.TalkChoiced.description, $scope.App.getQuantityByWindowWidth(), '<br>');
           $scope.App.isList = angular.isArray($scope.App.TalkChoiced.image);
         }
       }

@@ -2,17 +2,17 @@
   <ion-content class="has-header">
     <ion-list>
       <ion-item>
-        <div ng-if="isList" class="clearfix centered" style="width: {{App.TalkChoiced.speaker.length * 30 < 100 ? App.TalkChoiced.speaker.length * 30 : 100 }}%">
+        <div ng-if="App.isList" class="clearfix centered" style="width: {{App.TalkChoiced.speaker.length * 30 < 100 ? App.TalkChoiced.speaker.length * 30 : 100 }}%">
           <img ng-repeat="(key, item) in App.TalkChoiced.image track by key" ng-src="{{ item }}" class="img-circle img-responsive pull-left" width="30%" alt="{{ App.TalkChoiced.speaker[key] }}" title="{{ App.TalkChoiced.speaker[key] }}" />
         </div>
-        <div ng-if="!isList">
+        <div ng-if="!App.isList">
           <img ng-src="{{App.TalkChoiced.image}}" class="centered img-circle img-responsive" width="30%" alt="{{ App.TalkChoiced.speaker }}" title="{{ App.TalkChoiced.speaker }}" />
         </div>
         <br/>
         <div class="list">
 
           <div class="item item-divider">
-            {{ App.TalkChoiced.talk }} por <span ng-if="isList"><span ng-repeat="(i, speaker) in App.TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!isList">{{ App.TalkChoiced.speaker }}</span>
+            {{ App.TalkChoiced.talk }} por <span ng-if="App.isList"><span ng-repeat="(i, speaker) in App.TalkChoiced.speaker" > {{ speaker }}</span></span><span ng-if="!App.isList">{{ App.TalkChoiced.speaker }}</span>
           </div>
 
           <a class="item">
@@ -20,8 +20,9 @@
           </a>
           <a class="item">Complexidade: <em>{{ App.TalkChoiced.complexity }}</em></a>
           <a class="item">Descrição:</a>
-          <a class="item">{{ App.TalkChoiced.description || App.Config.NotInformedMessage }}</a>
-          <div ng-if="isList" ng-repeat="(i, speaker) in App.TalkChoiced.speaker track by $index">
+
+          <a class="item"><p ng-bind-html="App.TalkChoiced.description || App.Config.NotInformedMessage"></p></a>
+          <div ng-if="App.isList" ng-repeat="(i, speaker) in App.TalkChoiced.speaker track by $index">
             <a class="item item-divider">
               <p>Sobre {{speaker}}:</p>
             </a>
@@ -29,7 +30,7 @@
               <p ng-bind-html="App.TalkChoiced.resume[i] || App.Config.NotInformedMessage"></p>
             </a>
           </div>
-          <div ng-if="!isList">
+          <div ng-if="!App.isList">
             <a class="item item-divider">
               <p>Sobre {{App.TalkChoiced.speaker}}:</p>
             </a>
