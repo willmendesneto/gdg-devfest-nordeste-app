@@ -69,7 +69,7 @@ angular.module('gdgApp', ['ionic', 'ngSanitize'])
       }
     })
 
-    .state('app.single-track', {
+    .state('app.singleTrack', {
       url: '/tracks/single/:trackId',
       views: {
         'menuContent' :{

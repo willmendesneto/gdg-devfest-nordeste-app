@@ -8,6 +8,9 @@ angular.module('gdgApp')
       },
       link: {
         post: function($scope, $el, $attrs) {
+
+          $el.removeClass('ng-binding ng-scope');
+
           $el.bind('click', function(){
             window.open($scope.link, '_system', 'location=yes');
             return false;
@@ -15,7 +18,6 @@ angular.module('gdgApp')
 
           $scope.$on('$destroy', function(){
             $el.unbind('click');
-            $scope.$destroy();
           });
         }
       }
